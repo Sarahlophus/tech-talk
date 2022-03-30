@@ -1,0 +1,44 @@
+<div class='row'>
+  <div class='col-auto'>
+    <h2>Welcome, {{name}}!</h2>
+  </div>
+</div>
+
+<div class='row mt-4'>
+  <div class='col-md-6'>
+    <h3>Create a New Blog Post:</h3>
+
+    <form class='form new-message-form'>
+      <div class='form-group'>
+        <label for='message-name'>message name:</label>
+        <input class='form-input' type='text' id='message-name' name='message-name' />
+      </div>
+      <div class='form-group'>
+        <label for='message-desc'>description:</label>
+        <textarea class='form-input' id='message-desc' name='message-desc'></textarea>
+      </div>
+      <div class='form-group'>
+        <button type='submit' class='btn btn-primary'>Create</button>
+      </div>
+    </form>
+  </div>
+
+  {{#if messages.length}}
+    <div class='col-md-6 message-list'>
+      <h3>Current Blog Posts:</h3>
+
+      {{#each messages as |message|}}
+        <div class='row mb-2'>
+          <div class='col-md-8'>
+            <h4><a href='/message/{{message.id}}'>{{message.title}}</a></h4>
+          </div>
+          <div class='col-md-4'>
+            <button class='btn btn-sm btn-danger' data-id='{{message.id}}'>DELETE</button>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+</div>
+
+<script src='./js/profile.js'></script>

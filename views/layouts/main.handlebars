@@ -1,0 +1,37 @@
+<html lang='en'>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>TechTalk</title>
+    {{! stylesheet }}
+  </head>
+
+  <body>
+    <header>
+      <h1>Welcome to TechTalk</h1>
+    </header>
+    <nav>
+      <a href='/'>Home</a>
+      {{#if loggedIn}}
+        <button id='logout' class='btn-no-style'>Logout</button>
+      {{else}}
+        <a href='/login'>Login</a>
+      {{/if}}
+    </nav>
+    <main>
+      <aside>
+        <h2>Enjoy the galleries!</h2>
+      </aside>
+      <div class='gallery'>
+        {{{body}}}
+      </div>
+    </main>
+
+    <!-- Render script for logged in users only -->
+    {{#if loggedIn}}
+      <script src='/js/logout.js'></script>
+    {{/if}}
+  </body>
+
+</html>

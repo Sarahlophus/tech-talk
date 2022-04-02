@@ -68,3 +68,17 @@
 .height-100vh {
   height: 100vh;
 }
+
+/* media queries */
+/* tablet */
+
+/* phone */
+@media screen and (max-width: 576px) {
+  .mPh-ml1rem {
+    margin-left: 1rem;
+  }
+
+  .mPh-mr1rem {
+    margin-right: 1rem;
+  }
+}

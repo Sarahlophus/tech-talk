@@ -12,7 +12,7 @@ Message.belongsTo(User, {
 });
 
 Message.hasMany(Comment, {
-  foreignKey: 'post_id',
+  foreignKey: 'message_id',
   onDelete: 'CASCADE',
 });
 

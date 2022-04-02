@@ -39,6 +39,11 @@ const delButtonHandler = async (event) => {
   }
 };
 
+const messageList = document.querySelector('.message-list');
+if (messageList) {
+  messageList.addEventListener('click', delButtonHandler);
+}
+
 document.querySelector('.new-message-form').addEventListener('submit', newFormHandler);
 
-// document.querySelector('.message-list').addEventListener('click', delButtonHandler);
+document.querySelector('.message-list').addEventListener('click', delButtonHandler);

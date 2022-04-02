@@ -1,39 +1,60 @@
-<div class='row'>
-  <div class='col-md-6'>
-    <h2>Login</h2>
-
-    <form class='form login-form'>
-      <div class='form-group'>
-        <label for='email-login'>email:</label>
-        <input class='form-input' type='text' id='email-login' />
+<!-- main login -->
+<div class='columns is-centered'>
+  <!-- login form -->
+  <div class='bgc-offWhite border-slate4 box column is-4 m-5'>
+    <form class='login-form-js'>
+      <!-- enter email field -->
+      <div class='field'>
+        <label class='has-text-centered is-medium label' for='email-login'>Email:</label>
+        <div class='control'>
+          <input class='border-lslate2 has-text-centered input is-medium' type='text' id='email-login' />
+        </div>
       </div>
-      <div class='form-group'>
-        <label for='password-login'>password:</label>
-        <input class='form-input' type='password' id='password-login' />
+      <!-- enter password field -->
+      <div class='field'>
+        <label class='has-text-centered is-medium label' for='password-login'>Password:</label>
+        <div class='control'>
+          <input class='border-lslate2 input has-text-centered is-medium' type='password' id='password-login' />
+        </div>
       </div>
-      <div class='form-group'>
-        <button class='btn btn-primary' type='submit'>login</button>
+      <!-- submit button -->
+      <div class='field'>
+        <p class='control has-text-centered'>
+          <button class='bgc-lSlate button has-text-weight-bold' type='submit'>Log In!</button>
+        </p>
       </div>
     </form>
   </div>
-  <div class='col-md-6'>
-    <h2>Signup</h2>
 
-    <form class='form signup-form'>
-      <div class='form-group'>
-        <label for='name-signup'>name:</label>
-        <input class='form-input' type='text' id='name-signup' />
+  <!-- sign up form -->
+  <div class='bgc-offWhite border-dOrange4 box column is-4 m-5'>
+    <form class='signup-form-js'>
+      <!-- enter name field -->
+      <div class='field'>
+        <label class='has-text-centered is-medium label' for='name-signup'>Name</label>
+        <div class='control'>
+          <input class='border-lOrange2 has-text-centered input is-medium' type='text' id='name-signup' />
+        </div>
       </div>
-      <div class='form-group'>
-        <label for='email-signup'>email:</label>
-        <input class='form-input' type='text' id='email-signup' />
+      <!-- enter email field -->
+      <div class='field'>
+        <label class='has-text-centered is-medium label' for='email-signup'>Email</label>
+        <div class='control'>
+          <input class='border-lOrange2 has-text-centered input is-medium' type='text' id='email-signup' />
+        </div>
       </div>
-      <div class='form-group'>
-        <label for='password-signup'>password:</label>
-        <input class='form-input' type='password' id='password-signup' />
+      <!-- enter password field -->
+      <div class='field'>
+        <label class='has-text-centered is-medium label' for='password-signup'>Password</label>
+        <div class='control'>
+          <input class='border-lOrange2 has-text-centered input is-medium' type='password' id='password-signup' />
+        </div>
       </div>
-      <div class='form-group'>
-        <button class='btn btn-primary' type='submit'>signup</button>
+      <!-- submit button -->
+      <div class='field'>
+        <p class='control has-text-centered'>
+          <button class='bgc-lOrange button has-text-weight-bold' type='submit'>Sign Up!</button>
+        </p>
       </div>
     </form>
   </div>

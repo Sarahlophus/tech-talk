@@ -1,27 +1,25 @@
-<!-- Loop over each object in the messages array -->
-{{#each messages as |message|}}
-  <div class='row mb-4 message'>
-    <div class='col-md-5'>
-      <h2>
-        <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-        {{{get_emoji}}}
-        <a href='/message/{{message.id}}'>{{message.name}}</a>
-      </h2>
-      <p>
-        <span for='img' aria-label='money'>💲</span>
-        <!-- Pass needed_funding value to the helper function -->
-        <span class='dollar-amount'>{{format_amount message.needed_funding}}</span>
-        needed!
-      </p>
-      <p>Created by {{message.user.name}} on {{format_date message.date_created}}</p>
+<div class='columns is-centered is-multiline'>
+  <!--Loop over each object in the messages array -->
+  {{#each messages as |message|}}
+    <div class='border-slate4 column is-10 my-4 p-0'>
+      <!-- title, user, and date -->
+      <div class='bgc-slate level p-2'>
+        <!-- message title on the left -->
+        <p class='is-5 level-left'>
+          <a class='c-offWhite is-size-5 has-text-weight-semibold level-item' href='/message/{{message.id}}'>{{message.title}}</a>
+        </p>
+        <!-- username and date on the right -->
+        <div class='c-offWhite level-right'>
+          <p class='level-item'>Created by {{message.user.name}} on {{format_date message.date_created}}</p>
+        </div>
+      </div>
+      <!-- message -->
+      <div class='p-2'>
+        <p>
+          {{message.description}}
+        </p>
+      </div>
+
     </div>
-    <div class='col-md-7'>
-      <p>
-        {{message.description}}
-      </p>
-    </div>
-    {{#each message.comments as |comment|}}
-      <div>{{comment.title}}</div>
-    {{/each}}
-  </div>
-{{/each}}
+  {{/each}}
+</div>

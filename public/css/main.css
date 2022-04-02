@@ -1,0 +1,70 @@
+/* elements */
+
+/* classes */
+.bgc-dOrange {
+  background-color: #cc5803;
+}
+
+.bgc-lOrange {
+  background-color: #ffc971;
+}
+
+.bgc-lSlate {
+  background-color: #bad7f2;
+}
+
+.bgc-offWhite {
+  background-color: #ebf2fa;
+}
+
+.bgc-orange {
+  background-color: #ff9505;
+}
+
+.bgc-slate {
+  background-color: #22577a;
+}
+
+.border-lOrange2 {
+  border: 2px solid #ffc971;
+}
+
+.border-lslate2 {
+  border: 2px solid #bad7f2;
+}
+
+.border-slate4 {
+  border: 4px solid #22577a;
+}
+
+.border-dOrange4 {
+  border: 4px solid #cc5803;
+}
+
+.c-slate {
+  color: #22577a;
+}
+
+.c-dOrange {
+  color: #cc5803;
+}
+
+.c-offWhite {
+  color: #ebf2fa;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.ff-Inter {
+  font-family: 'Inter', sans-serif;
+}
+
+.f-shrink {
+  flex-shrink: 0;
+}
+
+.height-100vh {
+  height: 100vh;
+}

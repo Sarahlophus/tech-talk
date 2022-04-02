@@ -11,4 +11,10 @@
   <p>
     <button class='btn btn-primary'>I'll be deleted eventually!</button>
   </p>
+  {{! user sees comments }}
+  {{#each message.comments as |comment|}}
+    <div>{{comment.text}}</div>
+  {{/each}}
 </div>
+
+{{! create a form to add a new comment  }}

@@ -4,34 +4,82 @@
     <meta charset='utf-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>TechTalk</title>
-    {{! stylesheet }}
+    <!-- google font: Inter -->
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' rel='stylesheet' />
+    <!-- bulma -->
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css' />
+    <!-- stylesheet -->
+    <link rel='stylesheet' href='/css/reset.css' />
+    <link rel='stylesheet' href='/css/main.css' />
   </head>
 
-  <body>
-    <header>
-      <h1>Welcome to TechTalk</h1>
-    </header>
-    <nav>
-      <a href='/'>Home</a>
-      {{#if loggedIn}}
-        <button id='logout' class='btn-no-style'>Logout</button>
-      {{else}}
-        <a href='/login'>Login</a>
-      {{/if}}
+  <body class='columns ff-Inter height-100vh is-flex-direction-column mt-3'>
+    <nav class='column is-narrow'>
+      <div class='navbar' role='navigation' aria-label='main navigation'>
+        <!-- logo -->
+        <div class='navbar-brand title mx-4'>
+          <h1 class='navbar-item'><span class='c-dOrange has-text-weight-bold'>Tech</span><span class='c-slate'>Talk</span></h1>
+          <!-- hamburger menu for mobile -->
+          <a role='button' class='navbar-burger' aria-label='menu' aria-expanded='false' data-target='navbarBasicExample'>
+            <span aria-hidden='true'></span>
+            <span aria-hidden='true'></span>
+            <span aria-hidden='true'></span>
+          </a>
+        </div>
+        <!-- Homepage link -->
+        <div class='navbar-menu' id='navbarBasicExample'>
+          <div class='navbar-start'>
+            <a class='c-dOrange has-text-weight-semibold navbar-item' href='/'>Home</a>
+            <!-- Dashboard link -->
+            <a class='c-dOrange has-text-weight-semibold navbar-item'>Dashboard</a>
+            <!-- signup/login buttons -->
+            <div class='navbar-end'>
+              <div class='navbar-item'>
+                <div class='buttons'>
+
+                  <!-- logout button displays if user logged in-->
+                  {{#if loggedIn}}
+                    <button class='button bgc-lOrange c-slate has-text-weight-semibold' id='logout'>Logout</button>
+                  {{else}}
+                    <!-- signup button  displays if new user/logged out-->
+                    <a class='button bgc-lSlate c-Slate has-text-weight-semibold' href='/login'>Sign Up</a>
+                    <!-- login button displays if new user/logged out-->
+                    <a class='button bgc-lOrange c-Slate has-text-weight-semibold' href='/login''>Login</a>
+                  {{/if}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </nav>
-    <main>
-      <aside>
-        <h2>Enjoy the galleries!</h2>
-      </aside>
+
+    <!-- main -->
+    <main class='column'>
       <div class='gallery'>
         {{{body}}}
       </div>
     </main>
 
+    <!-- footer -->
+    <footer class='column footer is-narrow'>
+      <div class='content has-text-centered'>
+        <p>
+          <strong class='c-slate has-text-weight-bold'>TechTalk</strong>
+          made with ❤️ by
+          <a class='c-dOrange' href='https://github.com/Sarahlophus'>Sarah Ann Williams</a>
+        </p>
+      </div>
+    </footer>
+
     <!-- Render script for logged in users only -->
     {{#if loggedIn}}
       <script src='/js/logout.js'></script>
     {{/if}}
+    <!-- burger menu js -->
+    <script src='/js/burger.js'></script>
   </body>
 
 </html>

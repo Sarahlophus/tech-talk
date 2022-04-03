@@ -44,6 +44,6 @@ if (messageList) {
   messageList.addEventListener('click', delButtonHandler);
 }
 
-document.querySelector('.new-message-form').addEventListener('submit', newFormHandler);
+document.querySelector('.new-message-form-js').addEventListener('submit', newFormHandler);
 
-document.querySelector('.message-list').addEventListener('click', delButtonHandler);
+document.querySelector('.message-list-js').addEventListener('click', delButtonHandler);

@@ -8,18 +8,7 @@ router.get('/', async (req, res) => {
   try {
     // Get all messagess and JOIN with user data
     const messageData = await Message.findAll({
-      include: [
-        User,
-        Comment,
-        // {
-        //   model: User,
-        //   attributes: ['name'],
-        // },
-        // {
-        //   model: Comment,
-        //   attributes: ['title'],
-        // },
-      ],
+      include: [User, Comment],
     });
 
     // Serialize data so the template can read it
@@ -39,12 +28,7 @@ router.get('/', async (req, res) => {
 router.get('/message/:id', async (req, res) => {
   try {
     const messageData = await Message.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
+      include: [User, Comment],
     });
 
     const message = messageData.get({ plain: true });

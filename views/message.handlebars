@@ -1,20 +1,65 @@
-<div class='text-center'>
-  <h2>{{name}}</h2>
-  <p>{{{get_emoji}}}</p>
-  <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>
-    <span for='img' aria-label='money'>💲</span>
-    <span class='dollar-amount'>{{format_amount needed_funding}}</span>
-    needed
-  </p>
-  <p>
-    <button class='btn btn-primary'>I'll be deleted eventually!</button>
-  </p>
-  {{! user sees comments }}
-  {{#each message.comments as |comment|}}
-    <div>{{comment.text}}</div>
-  {{/each}}
+<div class='columns is-centered mPh-ml1rem mPh-mr1rem'>
+  <div class='border-slate4 column is-10 my-4 p-0'>
+    <!-- title, user, and date -->
+    <div class='bgc-slate level p-2'>
+      <!-- message title on the left -->
+      <p class='is-5 level-left'>
+        <a class='c-offWhite is-size-5 has-text-weight-semibold level-item' href='/message/{{message.id}}'>{{title}}</a>
+      </p>
+      <!-- username and date on the right -->
+      <div class='c-offWhite level-right'>
+        <p class='level-item'>Created by {{user.name}} on {{format_date date_created}}</p>
+      </div>
+    </div>
+    <!-- message -->
+    <div class='p-2'>
+      <p>
+        {{description}}
+      </p>
+    </div>
+  </div>
 </div>
+{{! user sees comments }}
+{{#each comments as |comment|}}
+  <div class='columns is-centered'>
+    <div class='border-dOrange4 column is-10 my-4 p-0'>
+      <!-- title, user, and date -->
+      <div class='bgc-dOrange level p-2'>
+        <!-- comment label on the left -->
+        <div class='is-5 level-left'>
+          <p class='c-offWhite is-size-5 has-text-weight-semibold level-item'>Comment</p>
+        </div>
+        <div class='c-offWhite level-right'>
+          <p class='level-item'>Created by {{name}} on {{format_date date_created}}</p>
+        </div>
+      </div>
+      <div class='p-2'>
+        <p>{{comment.text}}</p>
+      </div>
+    </div>
+  </div>
+{{/each}}
 
 {{! create a form to add a new comment  }}
+<div class='columns is-centered is-multiline mPh-ml1rem mPh-mr1rem'>
+  <div class='column is-10 my-4'>
+    <p class='c-slate has-text-centered is-size-5 subtitle'>Add a New Comment:</p>
+    <!-- new comment form -->
+    <form class='border-dOrange4 box new-comment-form-js'>
+      <!-- comment content -->
+      <div class='field'>
+        <label class='label' for='comment-text'>Write your comment:</label>
+        <div class='control'>
+          <textarea class='border-lOrange2 textarea' id='comment-text' name='comment-text'></textarea>
+        </div>
+      </div>
+      <!-- submit button -->
+      <div class='field'>
+        <p class='control'>
+          <button type='submit' class='bgc-lOrange button has-text-weight-bold'>Create!</button>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>
+<script src='../js/message.js'></script>

@@ -1,39 +1,52 @@
-<div class='row'>
-  <div class='col-auto'>
-    <h2>Welcome, {{name}}!</h2>
+<!-- welcome banner -->
+<section class='hero is-small bgc-slate'>
+  <div class='has-text-centered hero-body'>
+    <p class='c-offWhite title'>Welcome, {{name}}!</p>
   </div>
-</div>
+</section>
 
-<div class='row mt-4'>
-  <div class='col-md-6'>
-    <h3>Create a New Blog Post:</h3>
-
-    <form class='form new-message-form'>
-      <div class='form-group'>
-        <label for='message-name'>message name:</label>
-        <input class='form-input' type='text' id='message-name' name='message-name' />
+<div class='columns is-centered is-multiline'>
+  <div class='column is-10 m-5'>
+    <p class='c-slate has-text-centered is-size-4 subtitle'>Create a New Blog Post:</p>
+    <!-- new message form -->
+    <form class='border-dOrange4 box new-message-form-js'>
+      <!-- message title -->
+      <div class='field'>
+        <label class='is-medium label' for='message-name'>Title</label>
+        <div class='control'>
+          <input class='border-lOrange2 input is-medium' type='text' id='message-name' name='message-name' />
+        </div>
       </div>
-      <div class='form-group'>
-        <label for='message-desc'>description:</label>
-        <textarea class='form-input' id='message-desc' name='message-desc'></textarea>
+      <!-- message content -->
+      <div class='field'>
+        <label class='is-medium label' for='message-desc'>Content</label>
+        <div class='control'>
+          <textarea class='border-lOrange2 textarea is-medium' id='message-desc' name='message-desc'></textarea>
+        </div>
       </div>
-      <div class='form-group'>
-        <button type='submit' class='btn btn-primary'>Create</button>
+      <!-- submit buttin -->
+      <div class='field'>
+        <p class='control'>
+          <button type='submit' class='bgc-lOrange button has-text-weight-bold'>Create!</button>
+        </p>
       </div>
     </form>
   </div>
 
+  <!-- current posts -->
+  <!-- current posts appear only if they exist -->
   {{#if messages.length}}
-    <div class='col-md-6 message-list'>
-      <h3>Current Blog Posts:</h3>
-
+    <div class='columns is-centered is-multiline message-list-js'>
+      <p class='c-slate has-text-centered is-size-4 subtitle'>Current Blog Posts:</p>
       {{#each messages as |message|}}
-        <div class='row mb-2'>
-          <div class='col-md-8'>
-            <h4><a href='/message/{{message.id}}'>{{message.title}}</a></h4>
-          </div>
-          <div class='col-md-4'>
-            <button class='btn btn-sm btn-danger' data-id='{{message.id}}'>DELETE</button>
+        <div class='border-slate4 box column is-10 mPh-ml1rem mPh-mr1rem'>
+          <div class='level'>
+            <div class='level-left'>
+              <p class='has-text-weight-bold is-size-4 level-item subtitle'><a class='c-dOrange' href='/message/{{message.id}}'>{{message.title}}</a></p>
+            </div>
+            <div class='level-right'>
+              <button class='bgc-lSlate button has-text-weight-bold level-item' data-id='{{message.id}}'>DELETE</button>
+            </div>
           </div>
         </div>
       {{/each}}

@@ -21,7 +21,7 @@
 </div>
 {{! user sees comments }}
 {{#each comments as |comment|}}
-  <div class='columns is-centered'>
+  <div class='columns is-centered mPh-ml1rem mPh-mr1rem'>
     <div class='border-dOrange4 column is-10 my-4 p-0'>
       <!-- title, user, and date -->
       <div class='bgc-dOrange level p-2'>
@@ -30,7 +30,7 @@
           <p class='c-offWhite is-size-5 has-text-weight-semibold level-item'>Comment</p>
         </div>
         <div class='c-offWhite level-right'>
-          <p class='level-item'>Created by {{name}} on {{format_date date_created}}</p>
+          <p class='level-item'>Created by {{comment.user.name}} on {{format_date date_created}}</p>
         </div>
       </div>
       <div class='p-2'>
@@ -40,26 +40,38 @@
   </div>
 {{/each}}
 
-{{! create a form to add a new comment  }}
-<div class='columns is-centered is-multiline mPh-ml1rem mPh-mr1rem'>
-  <div class='column is-10 my-4'>
-    <p class='c-slate has-text-centered is-size-5 subtitle'>Add a New Comment:</p>
-    <!-- new comment form -->
-    <form class='border-dOrange4 box new-comment-form-js'>
-      <!-- comment content -->
-      <div class='field'>
-        <label class='label' for='comment-text'>Write your comment:</label>
-        <div class='control'>
-          <textarea class='border-lOrange2 textarea' id='comment-text' name='comment-text'></textarea>
+{{! create a form to add a new comment if logged in }}
+{{#if loggedIn}}
+  <div class='columns is-centered is-multiline mPh-ml1rem mPh-mr1rem'>
+    <div class='column is-10 my-4'>
+      <p class='c-slate has-text-centered is-size-5 subtitle'>Add a New Comment:</p>
+      <!-- new comment form -->
+      <form class='border-dOrange4 box new-comment-form-js'>
+        <!-- comment content -->
+        <div class='field'>
+          <input value='{{id}}' type='hidden' name='message_id' />
+          <label class='label' for='comment-text'>Write your comment:</label>
+          <div class='control'>
+            <textarea class='border-lOrange2 textarea' id='comment-text' name='comment-text'></textarea>
+          </div>
         </div>
-      </div>
-      <!-- submit button -->
-      <div class='field'>
-        <p class='control'>
-          <button type='submit' class='bgc-lOrange button has-text-weight-bold'>Create!</button>
-        </p>
-      </div>
-    </form>
+
+        <!-- submit button -->
+        <div class='field'>
+          <p class='control'>
+            <button type='submit' class='bgc-lOrange button has-text-weight-bold'>Create!</button>
+          </p>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
+{{else}}
+  <!-- signup button  displays if new user/logged out-->
+  <div class='level'>
+    <p class='has-text-centered level-item'>
+      <a class='button bgc-lSlate c-Slate has-text-weight-semibold' href='/login'>Log in or Sign up to comment!</a>
+    </p>
+  </div>
+{{/if}}
+
 <script src='../js/message.js'></script>

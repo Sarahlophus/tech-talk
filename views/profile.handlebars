@@ -24,7 +24,7 @@
           <textarea class='border-lOrange2 textarea is-medium' id='message-desc' name='message-desc'></textarea>
         </div>
       </div>
-      <!-- submit buttin -->
+      <!-- submit button -->
       <div class='field'>
         <p class='control'>
           <button type='submit' class='bgc-lOrange button has-text-weight-bold'>Create!</button>
@@ -36,16 +36,22 @@
   <!-- current posts -->
   <!-- current posts appear only if they exist -->
   {{#if messages.length}}
-    <div class='columns is-centered is-multiline message-list-js'>
+    <div class='columns is-centered is-multiline message-list-js mPh-ml1rem mPh-mr1rem'>
       <p class='c-slate has-text-centered is-size-4 subtitle'>Current Blog Posts:</p>
       {{#each messages as |message|}}
         <div class='border-slate4 box column is-10 mPh-ml1rem mPh-mr1rem'>
           <div class='level'>
             <div class='level-left'>
-              <p class='has-text-weight-bold is-size-4 level-item subtitle'><a class='c-dOrange' href='/message/{{message.id}}'>{{message.title}}</a></p>
+              <!-- message title -->
+              <p class='has-text-weight-bold is-size-4 level-item'><a class='c-dOrange' href='/message/{{message.id}}'>{{message.title}}</a></p>
+              <!-- message creation date -->
+              <p class='has-text-weight-normal is-size-6 level-item'>created {{format_date message.date_created}}</p>
             </div>
+            <!-- update/delete buttons -->
             <div class='level-right'>
-              <button class='bgc-lSlate button has-text-weight-bold level-item' data-id='{{message.id}}'>DELETE</button>
+              <p class='level-item'><a class='bgc-lSlate button has-text-weight-bold' data-id='{{message.id}}'>UPDATE</a></p>
+              <p class='level-item'><a class='bgc-lOrange button has-text-weight-bold' data-id='{{message.id}}'>DELETE</a></p>
+
             </div>
           </div>
         </div>

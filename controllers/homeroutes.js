@@ -28,12 +28,33 @@ router.get('/', async (req, res) => {
 router.get('/message/:id', async (req, res) => {
   try {
     const messageData = await Message.findByPk(req.params.id, {
-      include: [User, Comment],
+      include: [
+        { model: Comment, include: User },
+        {
+          model: User,
+        },
+      ],
+      order: [[Comment, 'date_created', 'desc']],
     });
 
     const message = messageData.get({ plain: true });
 
     res.render('message', {
+      ...message,
+      loggedIn: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// when user updates message, render edit message route
+router.get('/edit/message/:id', async (req, res) => {
+  try {
+    const messageData = await Message.findByPk(req.params.id);
+    const message = messageData.get({ plain: true });
+
+    res.render('edit', {
       ...message,
       loggedIn: req.session.logged_in,
     });

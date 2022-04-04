@@ -45,4 +45,4 @@ Test this program by clicking links, and entering unexpected or no text into inp
 ## Links
 
 - Repository: https://github.com/Sarahlophus/tech-talk
-- Live page (Heroku): 
+- Live page (Heroku): https://techtalk-blog.herokuapp.com/

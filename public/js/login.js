@@ -1,3 +1,6 @@
+// snackbar div to variable x
+const x = document.getElementById('snackbar');
+
 // login form
 const loginFormHandler = async (event) => {
   event.preventDefault();
@@ -18,8 +21,30 @@ const loginFormHandler = async (event) => {
       // If successful, redirect the browser to the profile page
       document.location.replace('/profile');
     } else {
-      alert(response.statusText);
+      // if response is not ok, temporarily show snackbar with failure
+      // add inner HTML
+      x.innerHTML = 'Failed to log in';
+      // Add the "show" class to DIV
+      x.className = 'show';
+
+      // After 3 seconds, remove the show class from DIV and clear inner HTML
+      setTimeout(function () {
+        x.className = x.className.replace('show', '');
+        x.innerHTML = '';
+      }, 3000);
     }
+  } else {
+    // If values are missing, temporarily show snackbar to ask that user fills out all fields
+    // add inner HTML
+    x.innerHTML = 'Please fill out all fields to log in!';
+    // Add the "show" class to DIV
+    x.className = 'show';
+
+    // After 3 seconds, remove the show class from DIV and clear inner HTML
+    setTimeout(function () {
+      x.className = x.className.replace('show', '');
+      x.innerHTML = '';
+    }, 3000);
   }
 };
 
@@ -41,8 +66,30 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/profile');
     } else {
-      alert(response.statusText);
+      // if response is not ok, temporarily show snackbar with failure
+      // add inner HTML
+      x.innerHTML = 'Failed to add user';
+      // Add the "show" class to DIV
+      x.className = 'show';
+
+      // After 3 seconds, remove the show class from DIV and clear inner HTML
+      setTimeout(function () {
+        x.className = x.className.replace('show', '');
+        x.innerHTML = '';
+      }, 3000);
     }
+  } else {
+    // If values are missing, temporarily show snackbar to ask that user fills out all fields and selects all options
+    // add inner HTML
+    x.innerHTML = 'Please fill out all fields to sign up!';
+    // Add the "show" class to DIV
+    x.className = 'show';
+
+    // After 3 seconds, remove the show class from DIV and clear inner HTML
+    setTimeout(function () {
+      x.className = x.className.replace('show', '');
+      x.innerHTML = '';
+    }, 3000);
   }
 };
 

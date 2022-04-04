@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Message } = require('../../models/index');
 
-// post route for new blog messages
+// POST route for new blog messages
 router.post('/', async (req, res) => {
   try {
     const newMessage = await Message.create({
@@ -15,6 +15,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+// PUT route to edit a message
 router.put('/:id', async (req, res) => {
   try {
     const editedMessage = await Message.update(req.body, {
@@ -34,6 +35,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+// DELETE route to delete a message
 router.delete('/:id', async (req, res) => {
   try {
     const messageData = await Message.destroy({

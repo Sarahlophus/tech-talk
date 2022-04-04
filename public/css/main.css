@@ -69,11 +69,83 @@
   height: 100vh;
 }
 
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  margin: 5% auto; /* center snackbar */
+  left: 0; /* center snackbar */
+  right: 0; /* center snackbar */
+  width: fit-content; /* Set a default minimum width */
+  background-color: rgb(242, 97, 97); /* Black background color */
+  color: #edf6f9; /* White text color */
+  font-weight: 600;
+  text-align: center; /* Centered text */
+  border-radius: 6px; /* Rounded borders */
+  padding: 1rem; /* Padding */
+  z-index: 1; /* Add a z-index if needed */
+  bottom: 15%; /* 30% from the bottom */
+  position: fixed;
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 15%;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 15%;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 15%;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 15%;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
 /* media queries */
 /* tablet */
 
 /* phone */
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 992px) {
   .mPh-ml1rem {
     margin-left: 1rem;
   }

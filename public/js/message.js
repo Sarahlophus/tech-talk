@@ -1,3 +1,6 @@
+// snackbar div to variable x
+const x = document.getElementById('snackbar');
+
 const newCommentHandler = async (event) => {
   event.preventDefault();
 
@@ -16,8 +19,30 @@ const newCommentHandler = async (event) => {
     if (response.ok) {
       location.reload();
     } else {
-      alert('Failed to create message');
+      // if response is not ok, temporarily show snackbar with failure
+      // add inner HTML
+      x.innerHTML = 'Failed to add a new comment';
+      // Add the "show" class to DIV
+      x.className = 'show';
+
+      // After 3 seconds, remove the show class from DIV and clear inner HTML
+      setTimeout(function () {
+        x.className = x.className.replace('show', '');
+        x.innerHTML = '';
+      }, 3000);
     }
+  } else {
+    // If values are missing, temporarily show snackbar to ask that user completes a comment
+    // add inner HTML
+    x.innerHTML = 'You must write a comment to add a comment!';
+    // Add the "show" class to DIV
+    x.className = 'show';
+
+    // After 3 seconds, remove the show class from DIV and clear inner HTML
+    setTimeout(function () {
+      x.className = x.className.replace('show', '');
+      x.innerHTML = '';
+    }, 3000);
   }
 };
 

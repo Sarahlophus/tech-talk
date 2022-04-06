@@ -48,21 +48,6 @@ router.get('/message/:id', async (req, res) => {
   }
 });
 
-// when user updates message, render edit message route
-router.get('/edit/message/:id', async (req, res) => {
-  try {
-    const messageData = await Message.findByPk(req.params.id);
-    const message = messageData.get({ plain: true });
-
-    res.render('edit', {
-      ...message,
-      loggedIn: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 // when user clicks on profile, can only see if logged in
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
@@ -77,6 +62,22 @@ router.get('/profile', withAuth, async (req, res) => {
 
     res.render('profile', {
       ...user,
+      loggedIn: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// when user updates message, render edit message route
+router.get('/update/:id', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const messageData = await Message.findByPk(req.params.id);
+    const message = messageData.get({ plain: true });
+
+    res.render('updateMessage', {
+      ...message,
       loggedIn: true,
     });
   } catch (err) {

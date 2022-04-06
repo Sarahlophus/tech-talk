@@ -1,27 +1,32 @@
 <div class='columns is-centered is-multiline'>
   <div class='column is-10 m-5'>
-    <p class='c-slate has-text-centered is-size-4 subtitle'>Create a New Blog Post:</p>
-    <!-- new message form -->
-    <form class='border-dOrange4 box new-message-form-js'>
-      <!-- message title -->
+    <p class='c-slate has-text-centered is-size-4 subtitle'>Update Your Blog Post:</p>
+    <!-- updated message form -->
+    <form class='border-dOrange4 box update-message-form-js'>
+      <!-- updated message title -->
       <div class='field'>
         <label class='is-medium label' for='message-name'>Title</label>
         <div class='control'>
-          <input class='border-lOrange2 input is-medium' type='text' id='message-name' name='message-name' />
+          <input class='border-lOrange2 input is-medium' type='text' id='message-name' name='message-name' value = "{{title}}"/>
         </div>
       </div>
-      <!-- message content -->
+      <!-- updated message content -->
       <div class='field'>
         <label class='is-medium label' for='message-desc'>Content</label>
         <div class='control'>
-          <textarea class='border-lOrange2 textarea is-medium' id='message-desc' name='message-desc'></textarea>
+          <textarea class='border-lOrange2 textarea is-medium' id='message-desc' name='message-desc'>{{description}}</textarea>
         </div>
       </div>
       <!-- submit button -->
       <div class='field'>
         <p class='control'>
-          <button type='submit' class='bgc-lOrange button has-text-weight-bold'>Update!</button>
+          <button type='submit' class='bgc-lOrange button has-text-weight-bold' id="id" data-id="{{id}}">Update!</button>
         </p>
       </div>
     </form>
   </div>
+
+  <!-- snackbar div to temporarily show error message -->
+<div id='snackbar'></div>
+<!-- javascript -->
+<script src='../js/messageEdit.js'></script>

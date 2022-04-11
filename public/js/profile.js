@@ -59,7 +59,7 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      location.reload();
     } else {
       // if response is not ok, temporarily show snackbar with error
       // add inner HTML
@@ -76,7 +76,7 @@ const delButtonHandler = async (event) => {
   }
 };
 
-const messageList = document.querySelector('.message-list');
+const messageList = document.querySelector('.message-list-js');
 if (messageList) {
   messageList.addEventListener('click', delButtonHandler);
 }
